@@ -1,0 +1,23 @@
+--- 
+apiVersion: v1 
+kind: Pod 
+metadata: 
+  name: initcontianer-pod
+spec:
+  initContainers:
+    - image: nginx:1.23
+      name: contianernginx-init
+      ports:
+        - containerPort: 80
+          protocol: TCP      
+    - image: jenkins:latest
+      name: contianerjenkins-init
+      ports:
+        - containerPort: 8080
+          protocol: TCP  
+  containers:
+    - image: alpine:3 
+      name: init-container
+      command: 
+        - sleep 
+        - "2s"           

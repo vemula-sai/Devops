@@ -22,3 +22,19 @@ kubectl create deployment nginx --image=nginx  # start a single instance of ngin
 kubectl explain pods                           # get the documentation for pod manifests
 kubectl describe pods -o wide                  # describe pod
 ```
+## restart policy 
+* Always—the pod must always be running, so Kubernetes creates a new container whenever an existing one terminates.
+* OnFailure—the container only restarts if it exits with a return code other than 0. Containers that return 0 (successful) do not require restarting.
+* Never—the container does not restart.
+
+## Kubernetes Pod Restart Policy
+* Every Kubernetes pod follows a defined lifecycle. It starts in the “pending” phase and moves to “running” if one or more of the primary containers     started successfully. Next, it goes to the “succeeded” or “failed” phase based on the success or failure of the containers in the pod.
+
+## pod phase
+
+* pending
+* failure
+* success
+* running
+* unknow
+# [crashloopback] (https://komodor.com/learn/how-to-fix-crashloopbackoff-kubernetes-error/#:~:text=What%20is%20Kubernetes%20CrashLoopBackOff%3F,some%20reason%2C%20then%20repeatedly%20crashes.)  
