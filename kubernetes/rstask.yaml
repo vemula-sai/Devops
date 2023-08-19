@@ -1,0 +1,34 @@
+---
+apiVersion: apps/v1 
+kind: ReplicaSet 
+metadata: 
+  name: rs-task 
+  labels:
+    app: jenkins 
+spec:
+  minReadySeconds: 3
+  replicas: 4 
+  selector: 
+    matchExpressions:
+      - key: app
+        operator: In 
+        values:
+          - jenkins
+  template:
+    metadata: 
+      name: rs-task-pod 
+      labels:
+        app: jenkins 
+        ver: "1.7"
+    spec:
+      containers:
+        - image: jenkins/jenkins:lts-jdk11
+          name: jenkins-cont 
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+      initContainers:
+        - image: alpine:3
+          name: alpine-cont 
+          command: ["ping","-c","4","google.com"]
+                       

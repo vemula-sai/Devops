@@ -38,3 +38,8 @@ kubectl describe pods -o wide                  # describe pod
 * running
 * unknow
 # [crashloopback] (https://komodor.com/learn/how-to-fix-crashloopbackoff-kubernetes-error/#:~:text=What%20is%20Kubernetes%20CrashLoopBackOff%3F,some%20reason%2C%20then%20repeatedly%20crashes.)  
+
+## replicas scale commads (imperative cmd)
+```
+kubectl scale rs <rs-name> --replicas=5
+```

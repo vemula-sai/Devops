@@ -1,0 +1,15 @@
+--- 
+apiVersion: core/v1 
+kind: Service 
+metadata:
+  name: service-nginx 
+spec:
+  type: ClusterIP
+  selector:
+    app: nginx
+    ver: "1.89"
+  ports:
+    - name: webport
+      port: 35000
+      targetPort: 80
+    
