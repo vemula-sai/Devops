@@ -1,0 +1,27 @@
+--- 
+apiVersion: apps/v1 
+kind: ReplicaSet
+metadata: 
+  name: nginx-rs
+  labels: 
+    app: nginx
+spec: 
+  minReadySeconds: 3 
+  replicas: 4 
+  selector:
+    matchLabels:
+      app: nginx
+      ver: "1.24"
+  template: 
+    metadata: 
+      name: replicaset-pod
+      labels:
+        app: nginx
+        ver: "1.24"
+    spec:
+      containers:
+        - image: nginx:1.23 
+          name: replica-container 
+          ports: 
+            - containerPort: 80 
+              protocol: TCP 
