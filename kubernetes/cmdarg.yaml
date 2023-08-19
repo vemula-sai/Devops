@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod 
+metadata: 
+  name: cmdargspod
+spec:
+  containers:
+    - image: nginx 
+      name: cmdargscontainer
+      ports:
+        - containerPort: 80
+          name: cmdargsport 
+          protocol: TCP 
+      command:
+        - sleep 
+      args: 
+        - 1d      
+      resources: 
+        requests:
+          memory: "24Mi"
+          cpu: "35m"
+        limits: 
+          memory: "35Mi"
+          cpu: "40m"   
