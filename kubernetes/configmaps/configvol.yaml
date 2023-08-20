@@ -1,0 +1,19 @@
+--- 
+apiVersion: v1 
+kind: Pod 
+metadata: 
+  name: conffig-env 
+spec: 
+  containers:
+    - name: alpine-cont 
+      image: alpine:3 
+      command:
+        - sleep 
+        - 1d 
+      volumeMounts:
+        - name: config-vol
+          mountPath: /config  
+  volumes:
+    - name: config-vol
+      ConfigMap:
+        name: config-task     
