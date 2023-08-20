@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1 
+kind: DaemonSet
+metadata:
+  name: daemon-task
+spec:
+  minReadySeconds: 4
+  revisionHistoryLimit: 10 
+  selector: 
+    matchLabels:
+      app: nginx 
+  template:
+    metadata: 
+      name: daemon-pod 
+      labels:
+        app: nginx
+        ver: "1.9" 
+    spec:
+      containers: 
+        - image: nginx:1.23
+          name: nginx-cont  
+          ports: 
+            - containerPort: 80 
+              name: daemon-port 
+              protocol: TCP   
+  updateStrategy:
+    type: rollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%                
