@@ -37,9 +37,22 @@ kubectl describe pods -o wide                  # describe pod
 * success
 * running
 * unknow
-# [crashloopback] (https://komodor.com/learn/how-to-fix-crashloopbackoff-kubernetes-error/#:~:text=What%20is%20Kubernetes%20CrashLoopBackOff%3F,some%20reason%2C%20then%20repeatedly%20crashes.)  
+* crashloopback trobleshoot [Refer Here](https://komodor.com/learn/how-to-fix-crashloopbackoff-kubernetes-error/#:~:text=What%20is%20Kubernetes%20CrashLoopBackOff%3F,some%20reason%2C%20then%20repeatedly%20crashes.)  
 
 ## replicas scale commads (imperative cmd)
 ```
 kubectl scale rs <rs-name> --replicas=5
 ```
+* taint&tolerence [Referhere](https://blog.kubecost.com/blog/kubernetes-taints/)
+```
+kubectl taint nodes <node-name> poc=true:NoSchedule
+
+#aws
+kubectl taint nodes ip-10-0-1-119.us-east-2.compute.internal poc=true:NoSchedule
+for other nodes
+kubectl taint nodes ip-10-0-1-199.us-east-2.compute.internal poc=false:NoSchedule
+
+kubectl taint nodes ip-10-0-3-230.us-east-2.compute.internal poc=false:NoSchedule
+```
+## Annatations eks (internal load balancer for tools to understand)
+  * [Refer Here](https://docs.aws.amazon.com/eks/latest/userguide/network-load-balancing.html)
