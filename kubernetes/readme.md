@@ -56,3 +56,6 @@ kubectl taint nodes ip-10-0-3-230.us-east-2.compute.internal poc=false:NoSchedul
 ```
 ## Annatations eks (internal load balancer for tools to understand)
   * [Refer Here](https://docs.aws.amazon.com/eks/latest/userguide/network-load-balancing.html)
+## rewriting nginx ingress controller [Refer Here](https://blog.saeloun.com/2023/03/21/setup-nginx-ingress-aws-eks/)
+## ingress controller [Refer Here](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/)
+## helm install [Refer Here](https://helm.sh/docs/intro/install/)
